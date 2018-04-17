@@ -7,7 +7,13 @@ For more information and related downloads for HPCC Systems products, please vis
 
 
 ## How to use Docker HPCC image
-You can start Docker HPCC image in interactive (-i -t) or daemon mode (-d). You need start HPCC processes then go to ECLWatch to submit jobs, query and explore your data with the HPCC Systems platform. "-p <host port>:<docer container port>" will map a port of docker container to a host port. The default ECLWatch port is 8010.
+You can start the Docker HPCC image in interactive (-i -t) or daemon mode (-d). You must start the HPCC processes then go to ECLWatch to submit jobs, query, and explore your data with the HPCC Systems platform. 
+
+To map a docker container port to a host port. 
+
+  "-p <host port>:<docker container port>" 
+  
+The default ECLWatch port is 8010.
 
 ### Ubuntu
 To start Docker in interactive mode and map ECLWatch port 8010 to host 8010:
@@ -33,23 +39,23 @@ sudo docker run -d --privileged -e "container=docker"-p 8010:8010 hpcc:el7
 ```
 
 ## How to build Docker HPCC image
-You always can create your own Dockerfile to build Docker HPCC image. We provide some pre-defined Dockerfiles and tools here.
-These are for HPCC Platform for Ubuntu 16.04 and CentOS 7. HPCC Plugins Dockerfiles will be provided later.
+You can always create your own Dockerfile to build a Docker HPCC image. We provide some pre-defined Dockerfiles and tools here.
+These are for HPCC Platform for Ubuntu 16.04 and CentOS 7. HPCC Plugins Dockerfiles to be provided later.
 
 ### Checkout this git reposiotry
 ```sh
 git clone https://github.com/xwang2713/docker-hpcc.git
 ```
-Currently there are release two versions: Gold Release: 6/ and Release Candidate: 6-rc/. There are two product types: platform and plugins. And two Linux distributes: Ubuntu (Ubuntu 16.04, default) and CentOS (CentOS 7). 
+Currently there are two release versions: Gold Release: 6/ and Release Candidate: 6-rc/. There are two product types: platform and plugins. And two Linux distributes: Ubuntu (Ubuntu 16.04, default) and CentOS (CentOS 7). 
 
 ### Update HPCC Platform Version 
 Make sure the HPCC Platform version is available in HPCCSystems.com -> "Download" -> "HPCC SYSTEM PLATFORM"
-Update the version with update.sh. For example you want to build 6.4.16-1:
+Update the version with update.sh. For example, if you want to build 6.4.16-1:
 ```sh
 ./update 6.4.16-1
 ```
 ### Build 
-You can go to interested directory which contains Dockerfile to run the build. Or you can run test-build.sh script which include test:
+You can go to directory of interest which contains the Dockerfile to run the build, or you can run the test-build.sh script which includes test:
 ```sh
 ./test-build.sh -v 6 -l ubuntu -p platform
 ```
