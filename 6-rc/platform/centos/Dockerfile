@@ -26,6 +26,7 @@ RUN yum update -y && yum install -y \
                 atlas.x86_64          \
                 which                 \
                 numa-libs             \
+                ansible               \
                 python34              
             
 RUN chmod u+s $(which ping)

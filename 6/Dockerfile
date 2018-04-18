@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
                 libblas3              \
                 libatlas3-base        \
                 psmisc                \
+                ansible               \
                 --fix-missing         \ 
 	&& rm -rf /var/lib/apt/lists/*
 
